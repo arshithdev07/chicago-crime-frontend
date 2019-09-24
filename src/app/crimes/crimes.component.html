@@ -1,1 +1,33 @@
-<p>crimes works!</p>
+<div class="row">
+    <div class="col-md-1">
+        Filter By: 
+    </div>
+
+    <div class="col-md-2">
+        <span>District</span>
+        <br>
+        <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" style="width:200px;" *ngIf="selectedDistrict" ngbDropdownToggle>{{selectedDistrict.districtName}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem *ngFor="let district of districts" (click)="changeDistrict($event, district)">{{district.districtName}}</button>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+        <span>Year</span>
+        <br>
+        <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selectedYear}}</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem *ngFor="let year of years" (click)="changeYear($event, year)">{{year}}</button>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-md-1">
+        <br>
+        <button class="btn btn-primary" (click)="filterRecords()">Filter</button>
+    </div>
+
+</div>

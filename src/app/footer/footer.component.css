@@ -1,5 +1,8 @@
 .footer {
-    background-color: #363636
+    background-color: #363636;
+    position: fixed;
+    bottom: 0;
+    width: -webkit-fill-available;
 }
 
 p {
