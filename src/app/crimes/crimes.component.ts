@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label } from 'ng2-charts';
 
 @Component({
   selector: 'app-crimes',
@@ -18,12 +20,35 @@ export class CrimesComponent implements OnInit {
   };
   selectedYear = '2019';
 
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+      yAxes: [{
+          ticks: {
+              suggestedMin: 0
+          }
+      }]
+    }
+  };
+  public chartColors: any[] = [
+    { 
+      backgroundColor:"#299BEC"
+    }];
+  public barChartLabels: any;
+  public barChartType: ChartType = 'bar';
+  public barChartLegend = false;
+  public barChartPlugins = [];
+
+  public barChartData:any;
+
+
   constructor(private http : HttpClient) { 
     console.log(environment.apiUrl);
   }
 
   ngOnInit() {
     this.getDistricts();
+    this.groupCrimesByDistrict();
   }
 
   getDistricts() {
@@ -43,11 +68,29 @@ export class CrimesComponent implements OnInit {
     this.selectedYear = newYear;
   }
 
-  filterRecords() {
+  filterRecordsByDistrictAndYear() {
     let date = this.selectedYear + "-01-01";
     this.http.get(`${this.apiUrl}/filteredCrimes?crimeDate=${date}&districtNo=${this.selectedDistrict.districtNo}`)
     .subscribe(crimes => {
       console.log("filtered crimes",crimes);
+    });
+  }
+
+  groupCrimesByDistrict() {
+    let date = this.selectedYear + "-01-01";
+    this.http.get(`${this.apiUrl}/crimeCount?crimeDate=${date}`)
+    .subscribe(crimesCount => {
+      console.log("Crime Count ",crimesCount);
+      const items: Object[] = crimesCount;
+      
+      var districtArray: string[] = items.map(item => item['label']);
+      const numberList: number[] = items.map(item => item['data']);
+      
+      console.log(districtArray);
+      console.log(numberList);
+      
+      this.barChartLabels = districtArray;
+      this.barChartData= numberList;
     });
   }
 
