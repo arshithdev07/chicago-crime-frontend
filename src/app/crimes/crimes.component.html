@@ -62,8 +62,56 @@
                             <button class="btn btn-primary" (click)="groupCrimesByDistrict()">Filter</button>
                         </div>
                     </div>
-
+                    <br>
                     <div>
+                        <h4>
+                            Recommended Districts with Lowest Crimes
+                        </h4>
+                        <div class="row">
+                            <div class="col-md-2" *ngFor="let district of lowestCrimeDistricts">
+                                <mat-card class="district-card">
+                                    <mat-card-header>
+                                    <div mat-card-avatar class="district-header-image"></div>
+                                    <mat-card-title>{{district.label}} District</mat-card-title>
+                                    </mat-card-header>
+                                    <img mat-card-image src="../../assets/{{district.label}}.jpg" >
+                                    <mat-card-content>
+                                    <p>
+                                        {{district.label}} had {{district.data | number}} number of crimes in the year {{selectedYear}}
+                                    </p>
+                                    </mat-card-content>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div>
+                            <h4>
+                                Highest Crime Districts
+                            </h4>
+                            <div class="row">
+                                <div class="col-md-2" *ngFor="let district of highestCrimeDistricts">
+                                    <mat-card class="district-card">
+                                        <mat-card-header>
+                                        <div mat-card-avatar class="district-header-image"></div>
+                                        <mat-card-title>{{district.label}} District</mat-card-title>
+                                        </mat-card-header>
+                                        <img mat-card-image src="../../assets/{{district.label}}.jpg" >
+                                        <mat-card-content>
+                                        <p>
+                                            {{district.label}} had {{district.data | number}} number of crimes in the year {{selectedYear}}
+                                        </p>
+                                        </mat-card-content>
+                                    </mat-card>
+                                </div>
+                            </div>
+                        </div>
+                    <br>
+                    <div>
+                        <h4>
+                            Crime Numbers In All Districts
+                        </h4>
+                        <br>
                         <div style="display: block">
                             <canvas baseChart
                                 [data]="barChartData"

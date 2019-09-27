@@ -19,6 +19,8 @@ export class CrimesComponent implements OnInit {
     districtName: string
   };
   selectedYear = '2019';
+  lowestCrimeDistricts: Array<object> = [];
+  highestCrimeDistricts: Array<object> = [];
 
   public barChartOptions: ChartOptions = {
     responsive: true,
@@ -91,6 +93,9 @@ export class CrimesComponent implements OnInit {
       
       this.barChartLabels = districtArray;
       this.barChartData= numberList;
+
+      this.lowestCrimeDistricts = items.slice(0, 5);
+      this.highestCrimeDistricts = items.slice(Math.max(items.length - 5, 1))
     });
   }
 

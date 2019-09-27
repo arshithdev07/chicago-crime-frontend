@@ -10,6 +10,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { CrimesComponent } from './crimes/crimes.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { CrimesComponent } from './crimes/crimes.component';
     AppRoutingModule,
     HttpClientModule,
     NgbModule,
-    ChartsModule
+    ChartsModule,
+    BrowserAnimationsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
