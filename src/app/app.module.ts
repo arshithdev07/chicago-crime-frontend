@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { CrimesComponent } from './crimes/crimes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
+import { CrimeByLocationComponent } from './crime-by-location/crime-by-location.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {MatCardModule} from '@angular/material/card';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    CrimesComponent
+    CrimesComponent,
+    CrimeByLocationComponent
   ],
   imports: [
     BrowserModule,

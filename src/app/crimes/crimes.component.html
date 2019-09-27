@@ -47,7 +47,7 @@
                         </div>
                     
                         <div class="col-md-1">
-                            <span>Year</span>
+                            <span>From Year</span>
                             <br>
                             <div ngbDropdown class="d-inline-block">
                             <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selectedYear}}</button>
@@ -126,6 +126,18 @@
                     </div>
                 </ng-template>
             </ngb-tab>
+
+            <ngb-tab title="Crimes By Property">
+                <ng-template ngbTabContent>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4" *ngFor="let property of properties">
+                            <app-crime-by-location [property]=property></app-crime-by-location>
+                        </div>
+                    </div>
+                </ng-template>
+            </ngb-tab>
+
     </ngb-tabset>
     
 

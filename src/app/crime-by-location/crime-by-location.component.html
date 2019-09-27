@@ -1,0 +1,8 @@
+<div>
+    <h4>{{property}}</h4>
+    <canvas *ngIf="doughnutChartData" baseChart 
+        [labels]="doughnutChartLabels"
+        [data]="doughnutChartData"
+        [chartType]="doughnutChartType">
+    </canvas>
+</div>

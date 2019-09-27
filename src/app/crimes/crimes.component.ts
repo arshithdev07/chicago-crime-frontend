@@ -43,6 +43,9 @@ export class CrimesComponent implements OnInit {
 
   public barChartData:any;
 
+  // property="APARTMENT";
+  properties = ["APARTMENT", "RESIDENT", "STREET", "SIDEWALK", "BANK", "AIRPORT"]
+
 
   constructor(private http : HttpClient) { 
     console.log(environment.apiUrl);
@@ -83,7 +86,7 @@ export class CrimesComponent implements OnInit {
     this.http.get(`${this.apiUrl}/crimeCount?crimeDate=${date}`)
     .subscribe(crimesCount => {
       console.log("Crime Count ",crimesCount);
-      const items: Object[] = crimesCount;
+      const items: Object[] = <Object[]>crimesCount;
       
       var districtArray: string[] = items.map(item => item['label']);
       const numberList: number[] = items.map(item => item['data']);
