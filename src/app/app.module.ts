@@ -13,6 +13,7 @@ import { CrimesComponent } from './crimes/crimes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import { CrimeByLocationComponent } from './crime-by-location/crime-by-location.component';
+import { CrimeByCommunityAreaComponent } from './crime-by-community-area/crime-by-community-area.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CrimeByLocationComponent } from './crime-by-location/crime-by-location.
     FooterComponent,
     HomeComponent,
     CrimesComponent,
-    CrimeByLocationComponent
+    CrimeByLocationComponent,
+    CrimeByCommunityAreaComponent
   ],
   imports: [
     BrowserModule,

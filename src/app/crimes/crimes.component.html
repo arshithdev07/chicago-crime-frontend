@@ -127,7 +127,7 @@
                 </ng-template>
             </ngb-tab>
 
-            <ngb-tab title="Crimes By Property">
+            <ngb-tab title="Top Crimes By Property">
                 <ng-template ngbTabContent>
                     <br>
                     <div class="row">
@@ -135,6 +135,13 @@
                             <app-crime-by-location [property]=property></app-crime-by-location>
                         </div>
                     </div>
+                </ng-template>
+            </ngb-tab>
+
+            <ngb-tab title="Arson Attacks By Community Area">
+                <ng-template ngbTabContent>
+                    <br>
+                        <app-crime-by-community-area></app-crime-by-community-area>
                 </ng-template>
             </ngb-tab>
 

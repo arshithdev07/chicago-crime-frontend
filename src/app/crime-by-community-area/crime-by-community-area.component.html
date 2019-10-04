@@ -1,0 +1,40 @@
+<div>
+    <div class="row">
+        <div class="col-md-1">
+            Filter By: 
+        </div>
+
+        <div class="col-md-1">
+            <span>From Year</span>
+            <br>
+            <div ngbDropdown class="d-inline-block">
+            <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selectedYear}}</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem *ngFor="let year of years" (click)="changeYear($event, year)">{{year}}</button>
+            </div>
+            </div>
+        </div>
+
+        <div class="col-md-1">
+            <br>
+            <button class="btn btn-primary" (click)="groupCrimesByCommunityAreas()">Filter</button>
+        </div>
+    </div>
+    <br>
+    <div *ngIf="barChartData">
+        <h4>
+            Arson Attack Numbers In All Community Areas 
+        </h4>
+        <div style="display: block">
+            <canvas baseChart
+                [data]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [plugins]="barChartPlugins"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                [colors]="chartColors">
+            </canvas>
+        </div>
+    </div>
+</div>
