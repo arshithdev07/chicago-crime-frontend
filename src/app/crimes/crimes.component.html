@@ -1,6 +1,6 @@
 <div class="row">
     <ngb-tabset class="crime-tab">
-        <ngb-tab title="Filter By District & Year">
+        <!-- <ngb-tab title="Filter By District & Year">
             <ng-template ngbTabContent>
                 <br>
                 <div class="row">
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </ng-template>
-        </ngb-tab>
+        </ngb-tab> -->
 
         <ngb-tab title="Crimes By District">
                 <ng-template ngbTabContent>
@@ -47,7 +47,7 @@
                         </div>
                     
                         <div class="col-md-1">
-                            <span>From Year</span>
+                            <span>Year</span>
                             <br>
                             <div ngbDropdown class="d-inline-block">
                             <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{selectedYear}}</button>
@@ -72,12 +72,12 @@
                                 <mat-card class="district-card">
                                     <mat-card-header>
                                     <div mat-card-avatar class="district-header-image"></div>
-                                    <mat-card-title>{{district.label}} District</mat-card-title>
+                                    <mat-card-title>{{district.districtName}} District</mat-card-title>
                                     </mat-card-header>
-                                    <img mat-card-image src="../../assets/{{district.label}}.jpg" >
+                                    <img mat-card-image src="../../assets/{{district.districtName}}.jpg" >
                                     <mat-card-content>
                                     <p>
-                                        {{district.label}} had {{district.data | number}} number of crimes in the year {{selectedYear}}
+                                        {{district.districtName}} had {{district.count | number}} number of crimes in the year {{selectedYear}}
                                     </p>
                                     </mat-card-content>
                                 </mat-card>
@@ -94,12 +94,12 @@
                                     <mat-card class="district-card">
                                         <mat-card-header>
                                         <div mat-card-avatar class="district-header-image"></div>
-                                        <mat-card-title>{{district.label}} District</mat-card-title>
+                                        <mat-card-title>{{district.districtName}} District</mat-card-title>
                                         </mat-card-header>
-                                        <img mat-card-image src="../../assets/{{district.label}}.jpg" >
+                                        <img mat-card-image src="../../assets/{{district.districtName}}.jpg" >
                                         <mat-card-content>
                                         <p>
-                                            {{district.label}} had {{district.data | number}} number of crimes in the year {{selectedYear}}
+                                            {{district.districtName}} had {{district.count | number}} number of crimes in the year {{selectedYear}}
                                         </p>
                                         </mat-card-content>
                                     </mat-card>
@@ -112,7 +112,7 @@
                             Crime Numbers In All Districts
                         </h4>
                         <br>
-                        <div style="display: block">
+                        <div style="display: block" *ngIf="barChartData">
                             <canvas baseChart
                                 [data]="barChartData"
                                 [labels]="barChartLabels"
@@ -127,7 +127,7 @@
                 </ng-template>
             </ngb-tab>
 
-            <ngb-tab title="Top Crimes By Property">
+            <!-- <ngb-tab title="Top Crimes By Property">
                 <ng-template ngbTabContent>
                     <br>
                     <div class="row">
@@ -143,7 +143,7 @@
                     <br>
                         <app-crime-by-community-area></app-crime-by-community-area>
                 </ng-template>
-            </ngb-tab>
+            </ngb-tab> -->
 
     </ngb-tabset>
     
