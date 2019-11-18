@@ -10,7 +10,7 @@ import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 })
 export class CrimeByCommunityAreaComponent implements OnInit {
 
-  years = ['2019', '2018', '2017', '2016', '2015'];
+  years = ['2019', '2018'];
   selectedYear = '2019';
   apiUrl = environment.apiUrl;
 

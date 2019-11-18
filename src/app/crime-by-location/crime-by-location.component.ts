@@ -30,7 +30,7 @@ export class CrimeByLocationComponent implements OnInit {
       this.topCrimes = (<Object[]>crimes).slice(0,3);
       console.log(this.topCrimes);
 
-      this.doughnutChartLabels = this.topCrimes.map(item => item['crimeType']);
+      this.doughnutChartLabels = this.topCrimes.map(item => item['crime']);
       this.doughnutChartData = this.topCrimes.map(item => item['count']);
     });
 
